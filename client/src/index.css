@@ -15,7 +15,8 @@ body {
   margin-top: 50px;
 }
 
-.button-container {
+.button-container,
+.info-container {
   display: flex;
   align-items: center;
 }
@@ -28,20 +29,111 @@ body {
   background-color: transparent;
 }
 
+.edit{
+  border: 1.5px solid rgb(141, 181 , 145);
+  color:rgb(141, 181 , 145);
+  text-transform: uppercase;
+}
+.edit:hover{
+  background-color: rgb(182 , 223, 186);
+}
+.edit:active{
+  border: 1.5px solid rgb(141, 181 , 145);
+  color:rgb(255, 255 , 255);
+  background-color: rgb(141, 181 , 145);
+}
+
+.delete {
+  border: 1.5px solid rgb(255, 175 , 163);
+  color: rgb(255, 175 , 163);
+  text-transform: uppercase;
+}
+.delete:hover{
+  background-color: rgb(255, 201, 193);
+}
+.delete:active{
+  background-color: rgb(255, 175, 163);
+  color: white;
+}
+.create {
+  border: 1.5px solid rgb(108 ,115, 148);
+  color: rgb(108 ,115, 148);
+  text-transform: uppercase;
+}
+.create:hover{
+  background-color: rgb(131,138, 172);
+}
+.create:active{
+  background-color: rgb(108 ,115, 148) ;
+  color: white;
+}
+
+.signout{
+  border: 1.5 solid rgb(255, 175, 163) ;
+  background-color:rgb(255, 175, 163) !important;
+  color: rgb(234,234 , 234) ;
+}
+.signout:hover{
+  background-color: rgb(175,94,94) !important;
+  border: 1.5  solid  rgb(175,94,94);
+}
+.signout:active{
+  border : 1.5 solid rgb(175 , 81 , 81 )!important;
+  background-color: rgb(175 , 81 , 81 ) !important;
+  color: white;
+}
+
 /* list header */
 .list-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    border-bottom: rgba(0, 0, 0, 0.05) 1px solid;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: rgba(0, 0, 0, 0.05) 1px solid;
 }
 
 /* list item */
-.list-item{
+.list-item {
   width: 100%;
   margin: 10px 0;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px;
   display: flex;
   justify-content: space-between;
+}
+.tick{
+  padding: 10px;
+}
+.tick path{
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 32px;
+}
+
+
+
+/* Modal */
+
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  width: 500px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px rgba(0, 0, 0, 0.08) 0 0 0 1px;
+}
+
+.modal .form-title-container{
+  
 }

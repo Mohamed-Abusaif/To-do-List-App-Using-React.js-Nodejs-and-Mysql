@@ -1,7 +1,6 @@
 function ProgressBar() {
     return (
       <div>
-        Mohamed
       </div>
     );
   }
