@@ -1,7 +1,9 @@
 function Auth() {
     return (
-      <div>
-        Mohamed
+      <div className="auth-container">
+
+
+
       </div>
     );
   }
