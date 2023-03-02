@@ -110,7 +110,12 @@ body {
   stroke-width: 32px;
 }
 
-
+input {
+  margin: 11px 0;
+  padding : 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgb(230, 232, 236);
+}
 
 /* Modal */
 
@@ -135,5 +140,20 @@ body {
 }
 
 .modal .form-title-container{
-  
+  display: flex;
+  justify-content: space-between;
+}
+.modal .form-title-container button {
+  border: none;
+  background-color: transparent;
+}
+.modal .form-title-container button:active{
+  color:rgb(255,50,50)
+}
+.modal form{
+  display: flex;
+  flex-direction: column;
+}
+.modal label {
+  font-size: 13px;
 }
