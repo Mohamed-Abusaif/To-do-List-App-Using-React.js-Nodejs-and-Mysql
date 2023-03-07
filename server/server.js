@@ -74,14 +74,14 @@ app.post("/signup", (req, res) => {
   const hashPassword = bcrypt.hashSync(password, salt);
   try {
     const signup = pool.query(
-      `insert into users (email,hashed_password values("${email}" , "${hashPassword}") )`
+      `insert into users (email,hashed_password) values("${email}" , "${hashPassword}")`
     );
-    const token = jwt.sign({email} , 'secret' , {expiresIn: '1hr'})
-    res.json({email, token})
+    const token = jwt.sign({ email }, "secret", { expiresIn: "1hr" });
+    res.json({ email, token });
   } catch (err) {
     console.error(err);
-    if(err){
-      res.json({detail: err.detail})
+    if (err) {
+      res.json({ detail: err.detail });
     }
   }
 });
@@ -89,9 +89,21 @@ app.post("/signup", (req, res) => {
 //login
 
 app.post("/login", (req, res) => {
-  const { emai, password } = req.body;
+  const { email, password } = req.body;
 
   try {
+    const {_rows} = pool.query("select * from users where email=?" , [email]);
+ 
+    if (!_rows.length) return res.json({ detail: "user does not exist" });
+    const success = bcrypt.compare(password, users.rows[0].hashPassword);
+    const token = jwt.sign({ email }, "secret", { expiresIn: "1hr" });
+
+    if (success) {
+      res.json({ 'email': users.rows[0].email, token });
+    }else 
+    {
+      res.json({detail: "login failed"})
+    }
   } catch (err) {
     console.error(err);
   }

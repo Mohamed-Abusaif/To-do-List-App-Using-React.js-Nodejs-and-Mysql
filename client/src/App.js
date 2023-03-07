@@ -2,10 +2,12 @@ import ListHeader from "./components/ListHeader";
 import { useEffect, useState } from "react";
 import Listitem from "./components/Listitem";
 import Auth from "./components/Auth";
+import { useCookies } from "react-cookie";
 function App() {
-  const userEmail = "Mo1234@gmail.com";
+  const [cookies, setCookie, removeCookie] = useCookies(null);
+  const authtoken = cookies.Authtoken
+  const userEmail = cookies.Email;
   const [tasks, setTasks] = useState(null);
-  const authToken = false;
   const getData = async () => {
     try {
       const response = await fetch(
@@ -18,10 +20,10 @@ function App() {
     }
   };
   useEffect(() => {
-    if (authToken) {
+    if (authtoken) {
       getData();
     }
-  }, []);
+  }, [authtoken]);
 
   console.log(tasks);
 
@@ -32,8 +34,8 @@ function App() {
 
   return (
     <div className="app">
-      {!authToken && <Auth></Auth>}
-      {authToken && (
+      {!authtoken && <Auth></Auth>}
+      {authtoken && (
         <>
           <ListHeader
             listName={"Holiday Tick List!"}
